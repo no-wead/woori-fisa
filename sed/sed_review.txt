@@ -1,0 +1,39 @@
+문제 만들기
+다음 문자열을 넣은 txt 파일을 만들어주세요.
+hello test apple orange apple
+test hello book happy apple
+good fisa
+book book fisa fisa
+tree leaves tree
+cloud
+aws google
+- 원본 데이터의 모든 "book"을 "woori"로 바꾸세요
+sed -i 's/book/woori/g' test.txt
+- 원본 파일은 수정하지 말고 4번째 줄에 있는 첫번째 "fisa"만 "friend"로 바꾸세요
+sed 's/fisa/friend/' test.txt
+- 2번 줄에 may를 추가한 데이터를 새로운 파일 study.txt로 만드세요
+(단 원본 파일은 변경하지 않는다)
+sed '2 i\may' test.txt > study.txt
+- happy가 있는 줄의 "test" 데이터만 "haha"로 바꾸세요
+sed '/happy/s/test/haha/' test.txt
+- 원본 데이터에서 각 줄에서 하나씩만 book을 water로 바꾸세요
+sed -i 's/book/water/' test.txt
+- leaves가 속한 줄의 문장만 따로 출력하세요.
+sed '/tree/p' test.txt
+- a로 끝나는 텍스트의 test 텍스트를 모두 woori로 바꾸고 터미널에 변경사항 표시
+sed '/a$/s/fisa/woori/g' test.txt
+- test.txt에서 2번 째 줄을 출력하시오
+sed -n '2p' fisa2.txt
+- 파일의 두 번째 줄에 "deveops" 텍스트를 삽입하고 출력 파일에 다시 기록
+sed '2 i\deveops' test2.txt > test3.txt
+cat test3.txt
+- 검색 텍스트 deveops가 있는 터미널의 행만 표시
+sed -n '/deveops'/p fisa3.txt
+
+- 다음 데이터로 numtest.txt 파일을 만드세요
+10 100
+20 200
+30 300
+40 400
+awk를 활용해 첫번째 열의 합을 출력하세요
+awk '{ sum += $1 } END { print sum }' numtest.txt
